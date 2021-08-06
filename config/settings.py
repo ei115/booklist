@@ -136,3 +136,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_URL = 'booklist:login'
 
 LOGIN_REDIRECT_URL = 'booklist:index'
+
+import django_heroku
+django_heroku.settings(locals())
