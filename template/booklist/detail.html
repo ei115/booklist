@@ -1,0 +1,23 @@
+{% extends 'booklist/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+    <div class="card">
+        <h5 class="card-header">タイトル : {{ object.title }}</h5>
+        <div class="card-body">
+            <p class="card-text">著者 : {{ object.author }}</p>
+            <p class="card-text">感想 : {{ object.summary }}</p>
+
+            {% if object.contributor == request.user %}
+            <a href="{% url 'booklist:index' %}" class="btn btn-primary float-start">戻る</a>
+            <a href="{% url 'booklist:delete' object.pk %}" class="btn btn-warning float-end">削除</a>
+            <a href="{% url 'booklist:update' object.pk %}" class="btn btn-primary float-end">更新</a>
+            {% else %}
+            <a href="{% url 'booklist:index' %}" class="btn btn-primary float-start">戻る</a>
+            {% endif %}
+
+        </div>
+    </div>
+</div>
+{% endblock content %}

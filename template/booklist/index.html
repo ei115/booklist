@@ -1,0 +1,40 @@
+{% extends 'booklist/base.html' %}
+{% load static %}
+
+{% block customcss %}
+<link href="{% static 'index.css' %}" rel="stylesheet">
+{% endblock customcss %}
+
+{% block content %}
+<section class="py-5 text-center container">
+  <div class="row py-lg-5">
+    <div class="col-lg-6 col-md-8 mx-auto">
+      <h1 class="fw-light">BOOKLIST</h1>
+      <p class="lead text-muted">お気に入りの本をみんなに教えよう！</p>
+      <p>
+        <a href="{% url 'booklist:create' %}" class="btn btn-primary my-2">Create</a>
+      </p>
+    </div>
+  </div>
+</section>
+<br>
+<br>
+<main class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for book in object_list %}
+    <div class="col">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">タイトル：{{ book.title }}</h5>
+          <p class="card-text">著者名：{{ book.author }}</p>      
+        </div>
+        <div class="card-footer">
+          <a href="{% url 'booklist:detail' book.pk %}" class="btn btn-sm btn-outline-secondary">詳細</a>
+          <p class="text-secondary float-end">投稿者 :{{ book.contributor }}</p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</main>
+{% endblock content %}

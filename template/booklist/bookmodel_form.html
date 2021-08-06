@@ -1,0 +1,19 @@
+{% extends 'booklist/base.html' %}
+
+{% block content %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="container">
+        <h2>紹介カードを作る</h2>
+        <br>
+        <label for="title">タイトル</label>
+        {{ form.title }}
+        <label for="author">著者</label>
+        {{ form.author }}
+        <label for="summary">感想</label>
+        {{ form.summary }}
+        <br>
+        <button type="submit"class="btn btn-sm btn-outline-secondary">作成</button>
+    </div>
+</form>
+{% endblock content %}
