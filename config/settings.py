@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-3b=o#0_z8d&w9pd8wiz)5#iz^0j&*9=^tk1t88jt&c0hfbx07t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['booklist-hy.herokuapp.com']
 
 
 # Application definition
